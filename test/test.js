@@ -49,17 +49,52 @@ describe('/api/user-accounts', function() {
     });
 
     describe('login', function() {
-      it('should be success');
+      it('should be success', function() {
+        return httpClient
+          .post('/api/user-accounts')
+          .type('json')
+          .send({
+            email: 'user@email.com',
+            password: 'userpass',
+          })
+          .then(() => {
+            return httpClient
+              .post('/api/user-accounts/login')
+              .type('json')
+              .send({
+                email: 'user@email.com',
+                password: 'userpass',
+              })
+              .should.eventually.be.have.status(200);
+          });
+      });
     });
 
     describe('logout', function() {
-      it('should be success');
-    });
-  });
-
-  describe('PUT', function() {
-    describe('update', function() {
-      it('should be success');
+      it('should be success', function() {
+        return httpClient
+          .post('/api/user-accounts')
+          .type('json')
+          .send({
+            email: 'user@email.com',
+            password: 'userpass',
+          })
+          .then(() => {
+            return httpClient
+              .post('/api/user-accounts/login')
+              .type('json')
+              .send({
+                email: 'user@email.com',
+                password: 'userpass',
+              })
+              .then(res => {
+                return httpClient
+                  .post('/api/user-accounts/logout')
+                  .set('Authorization', res.body.id)
+                  .should.eventually.be.have.status(204);
+              });
+          });
+      });
     });
   });
 });
