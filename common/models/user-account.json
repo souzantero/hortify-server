@@ -12,10 +12,6 @@
     },
     "pictureUrl": {
       "type": "string"
-    },
-    "isThirdParty": {
-      "type": "boolean",
-      "default": false
     }
   },
   "validations": [],

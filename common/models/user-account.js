@@ -37,10 +37,12 @@ module.exports = function(Model) {
   };
 
   Model.prototype.sendUserAccountVerificationEmail = function () {
+    console.log('email to verification sent');
     return Promise.resolve();
   };
 
   Model.prototype.sendUserAccountResetPasswordEmail = function (accessToken) {
+    console.log('email to reset password sent');
     return Promise.resolve();
   };
 
@@ -58,11 +60,8 @@ module.exports = function(Model) {
     return this.save();
   };
 
-  Model.prototype.handleCreatedByThirdParty = function () {
-    if (this.username && this.username.startsWith('facebook-token')) {
-      delete this.__data.username;
-      this.isThirdParty = true;
-    }
+  Model.prototype.isCreatedByThirdParty = function () {
+    return this.username && this.username.startsWith('facebook-token');
   };
 
   // HELPER METHODS
@@ -89,17 +88,9 @@ module.exports = function(Model) {
 
   // OPERATION HOOKS
 
-  Model.observe('before save', function(context, next) {
-    if (context.isNewInstance) {
-      context.instance.handleCreatedByThirdParty();
-    }
-
-    next();
-  });
-
   Model.observe('after save', function(context, next) {
     if (context.isNewInstance) {
-      if (context.instance.isThirdParty) next();
+      if (context.instance.isCreatedByThirdParty()) next();
       else context.instance.verifyAccount()
         .then(() => next())
         .catch((err) => next(err));

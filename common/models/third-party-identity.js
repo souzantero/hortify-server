@@ -26,8 +26,7 @@ module.exports = function(Model) {
         if (err) reject(err);
         else this.updateAttribute('userId', user.id, (err) => {
           if (err) reject(err);
-          else user.updateAttribute('isThirdParty', true)
-            .then(() => user.forceVerifyAccount())
+          else user.forceVerifyAccount()
             .then(() => resolve())
             .catch((err) => reject(err));
         })
