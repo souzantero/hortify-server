@@ -1,9 +1,6 @@
 {
   "name": "UserAccount",
   "base": "User",
-  "http": {
-    "path": "users"
-  },
   "ttl": 63072000,
   "maxTTL": 63072000,
   "properties": {},
