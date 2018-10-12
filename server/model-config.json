@@ -40,7 +40,10 @@
           "login": true,
           "logout": true,
           "create": true,
-          "replaceById": true
+          "replaceById": true,
+          "resetPassword": true,
+          "setPassword": true,
+          "confirm": true
         }
       }
     }

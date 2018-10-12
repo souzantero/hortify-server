@@ -1,9 +1,23 @@
 {
   "name": "UserAccount",
   "base": "User",
+  "strict": true,
+  "restrictResetPasswordTokenScope": true,
+  "emailVerificationRequired": true,
   "ttl": 63072000,
   "maxTTL": 63072000,
-  "properties": {},
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "pictureUrl": {
+      "type": "string"
+    },
+    "isThirdParty": {
+      "type": "boolean",
+      "default": false
+    }
+  },
   "validations": [],
   "relations": {
     "identities": {
