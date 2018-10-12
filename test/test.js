@@ -33,5 +33,23 @@ after(function() {
 });
 
 describe('/api/user-accounts', function() {
+  describe('POST', function() {
+    describe('create', function() {
+      it('should be success');
+    });
 
+    describe('login', function() {
+      it('should be success');
+    });
+
+    describe('logout', function() {
+      it('should be success');
+    });
+  });
+
+  describe('PUT', function() {
+    describe('update', function() {
+      it('should be success');
+    });
+  });
 });
