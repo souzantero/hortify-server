@@ -23,7 +23,10 @@ before(function(done) {
 });
 
 beforeEach(function(done) {
-  dataSource.connector.db.dropDatabase(done);
+  dataSource.connector.connect(function(err, db) {
+    if (err) done(err);
+    else db.dropDatabase(done);
+  });
 });
 
 after(function() {
@@ -33,7 +36,16 @@ after(function() {
 describe('/api/user-accounts', function() {
   describe('POST', function() {
     describe('create', function() {
-      it('should be success');
+      it('should be success', function() {
+        return httpClient
+          .post('/api/user-accounts')
+          .type('json')
+          .send({
+            email: 'user@email.com',
+            password: 'userpass',
+          })
+          .should.eventually.be.have.status(200);
+      });
     });
 
     describe('login', function() {
