@@ -6,8 +6,6 @@ chai.should();
 chai.use(require('chai-http'));
 chai.use(require('chai-as-promised'));
 
-const app = require('../server/app');
-
 // Vars
 
 let httpServer = undefined;
@@ -15,7 +13,7 @@ let httpClient = undefined;
 let dataSource = undefined;
 
 before(function(done) {
-  app(function(server) {
+  require('../server/app')(function(app, server) {
     httpServer = server;
     httpClient = chai.request(app).keepOpen();
     dataSource = app.dataSources.local;

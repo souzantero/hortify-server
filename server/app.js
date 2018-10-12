@@ -11,7 +11,7 @@ module.exports = function(done) {
     const server = app.listen(function() {
       app.emit('started');
       console.log(app.get('url').replace(/\/$/, ''));
-      done(server);
+      done(app, server);
     });
   });
 };
