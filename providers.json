@@ -1,0 +1,12 @@
+{
+  "facebook-token": {
+    "provider": "facebook-token",
+    "module": "passport-facebook-token",
+    "strategy": "FacebookTokenStrategy",
+    "clientID": "463017104206428",
+    "clientSecret": "0004f0b7b0a9d4a6c703972bc9a45169",
+    "session" : false,
+    "callbackURL": "/auth/facebook-token/callback",
+    "json":true
+  }
+}

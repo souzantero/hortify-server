@@ -4,7 +4,8 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
-      "./models"
+      "./models",
+      "../node_modules/loopback-component-passport/lib/models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -12,5 +13,44 @@
       "../common/mixins",
       "./mixins"
     ]
+  },
+  "ACL": {
+    "dataSource": "local",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "local",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "local",
+    "public": false
+  },
+  "AuthorizationToken": {
+    "dataSource": "local",
+    "public": false
+  },
+  "UserAccount": {
+    "dataSource": "local",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "login": true,
+          "logout": true,
+          "create": true,
+          "replaceById": true
+        }
+      }
+    }
+  },
+  "ThirdPartyIdentity": {
+    "dataSource": "local",
+    "public": false
+  },
+  "ThirdPartyCredential": {
+    "dataSource": "local",
+    "public": false
   }
 }

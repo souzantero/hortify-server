@@ -1,1 +1,12 @@
-{}
+{
+  "local": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "hortify_db",
+    "password": "",
+    "name": "local",
+    "user": "",
+    "connector": "mongodb"
+  }
+}

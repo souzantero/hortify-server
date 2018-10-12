@@ -1,4 +1,12 @@
 {
+  "auth": {
+    "loopback#token": {
+      "params": {
+        "model": "AuthorizationToken",
+        "currentUserLiteral": "me"
+      }
+    }
+  },
   "final:after": {
     "strong-error-handler": {
       "params": {

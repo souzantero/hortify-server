@@ -1,0 +1,25 @@
+{
+  "name": "UserAccount",
+  "base": "User",
+  "http": {
+    "path": "users"
+  },
+  "ttl": 63072000,
+  "maxTTL": 63072000,
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "identities": {
+      "type": "hasMany",
+      "model": "ThirdPartyIdentity",
+      "foreignKey": "userId"
+    },
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AuthorizationToken",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
