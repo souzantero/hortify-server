@@ -1,6 +1,9 @@
 'use strict';
 
+const mailer = require('../../server/services/mailer');
+
 module.exports = function(Model) {
+
   // SETTINGS
 
   Model.disableRemoteMethodByName('prototype.__count__accessTokens');
@@ -37,13 +40,17 @@ module.exports = function(Model) {
   };
 
   Model.prototype.sendUserAccountVerificationEmail = function () {
-    console.log('email to verification sent');
-    return Promise.resolve();
+    const to = this.email;
+    const url = `http://0.0.0.0:3000/api/user-accounts/confirm?uid=${this.id}&token=${this.verificationToken}&redirect=http://hortify.com/confirm-account-success.html`;
+
+    return mailer.sendUserAccountVerificationEmail(to, url)
   };
 
   Model.prototype.sendUserAccountResetPasswordEmail = function (accessToken) {
-    console.log('email to reset password sent');
-    return Promise.resolve();
+    const to = this.email;
+    const url =`http://hortify.com/reset-password.html?access_token=${accessToken.id}`;
+
+    return mailer.sendUserAccountResetPasswordEmail(to, url);
   };
 
   Model.prototype.verifyAccount = function () {

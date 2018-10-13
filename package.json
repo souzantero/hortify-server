@@ -22,6 +22,7 @@
     "loopback-connector-mongodb": "^3.8.0",
     "passport-facebook-token": "^3.3.0",
     "serve-favicon": "^2.0.1",
+    "sparkpost": "^2.1.2",
     "strong-error-handler": "^2.0.0"
   },
   "devDependencies": {

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <style>
+
+    body {
+      font-family: Sans-serif;
+      text-align: center;
+    }
+
+    .text {
+      color:darkslategrey;
+    }
+
+    .font-big {
+      font-size: 18px;
+    }
+
+    .font-small {
+      font-size: 14px;
+    }
+
+  </style>
+
+  <title>Reset Password Request</title>
+</head>
+  <body>
+    <br/><br/>
+    <div>
+      <p class="text font-big">Hi there,</p>
+      <p class="text font-small">We received a request to change your password on Hortify. Click the link below to change your password.</p>
+      <a class="" href="<%= url %>">Change your password</a>
+      <br/>
+      <p class="text font-small">If you didn’t request a password change, you can ignore this message and continue to use your current password. Someone probably typed in your email address by accident.</p>
+    </div>
+    <br/><br/>
+    <a class="font-small" href="http://hortify.com">&copy; Hortify</a>
+    <br/><br/>
+    <p class="text font-small">Please do not reply to this email address as it is not being monitored by a human.</p>
+  </body>
+</html>
