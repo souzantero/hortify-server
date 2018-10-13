@@ -24,7 +24,7 @@ module.exports = function(Model) {
 
   // INSTANCE METHODS
 
-  Model.prototype.generateVerificationTokenAndSave = function () {
+  Model.prototype.generateVerificationTokenAndSave = function() {
     return new Promise((resolve, reject) => {
       Model.generateVerificationToken(this, null, (err, token) => {
         if (err) reject(err);
@@ -39,21 +39,21 @@ module.exports = function(Model) {
     });
   };
 
-  Model.prototype.sendUserAccountVerificationEmail = function () {
+  Model.prototype.sendUserAccountVerificationEmail = function() {
     const to = this.email;
     const url = `http://0.0.0.0:3000/api/user-accounts/confirm?uid=${this.id}&token=${this.verificationToken}&redirect=http://hortify.com/confirm-account-success.html`;
 
     return mailer.sendUserAccountVerificationEmail(to, url)
   };
 
-  Model.prototype.sendUserAccountResetPasswordEmail = function (accessToken) {
+  Model.prototype.sendUserAccountResetPasswordEmail = function(accessToken) {
     const to = this.email;
     const url =`http://hortify.com/reset-password.html?access_token=${accessToken.id}`;
 
     return mailer.sendUserAccountResetPasswordEmail(to, url);
   };
 
-  Model.prototype.verifyAccount = function () {
+  Model.prototype.verifyAccount = function() {
     return this.generateVerificationTokenAndSave()
       .then(() => {
         return this.sendUserAccountVerificationEmail();
@@ -61,19 +61,19 @@ module.exports = function(Model) {
       .catch(() => this.destroy());
   };
 
-  Model.prototype.forceVerifyAccount = function () {
+  Model.prototype.forceVerifyAccount = function() {
     this.verificationToken = null;
     this.emailVerified = true;
     return this.save();
   };
 
-  Model.prototype.isCreatedByThirdParty = function () {
+  Model.prototype.isCreatedByThirdParty = function() {
     return this.username && this.username.startsWith('facebook-token');
   };
 
   // HELPER METHODS
 
-  Model.validatePasswordLength = function (password, next) {
+  Model.validatePasswordLength = function(password, next) {
     if (!password || password.length < 6) {
       const err = new Error('The password should be less than 6 characters');
       err.statusCode = 422;
