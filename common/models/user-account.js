@@ -41,14 +41,15 @@ module.exports = function(Model) {
 
   Model.prototype.sendUserAccountVerificationEmail = function() {
     const to = this.email;
-    const url = `http://0.0.0.0:3000/api/user-accounts/confirm?uid=${this.id}&token=${this.verificationToken}&redirect=http://hortify.com/confirm-account-success.html`;
+    const redirect = 'http://Users/antero/Repositories/github.com/souzantero/hortify-server/client/confirm-account-success.html';
+    const url = `http://0.0.0.0:3000/api/user-accounts/confirm?uid=${this.id}&token=${this.verificationToken}&redirect=${redirect}`;
 
     return mailer.sendUserAccountVerificationEmail(to, url)
   };
 
   Model.prototype.sendUserAccountResetPasswordEmail = function(accessToken) {
     const to = this.email;
-    const url =`http://hortify.com/reset-password.html?access_token=${accessToken.id}`;
+    const url =`http://Users/antero/Repositories/github.com/souzantero/hortify-server/client/reset-password.html?access_token=${accessToken.id}`;
 
     return mailer.sendUserAccountResetPasswordEmail(to, url);
   };
