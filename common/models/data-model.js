@@ -4,7 +4,7 @@ module.exports = function(Model) {
 
   // OPERATION HOOKS
 
-  Model.observe('before save', function (context, next) {
+  Model.observe('before save', function(context, next) {
     let now = Date.now();
 
     if (context.isNewInstance) {
