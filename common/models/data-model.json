@@ -5,6 +5,7 @@
   "options": {
     "validateUpsert": true
   },
+  "strict": true,
   "properties": {
     "createdAt": {
       "type": "date",

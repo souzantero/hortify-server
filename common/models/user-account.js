@@ -67,11 +67,7 @@ module.exports = function(Model) {
     this.emailVerified = true;
     return this.save();
   };
-
-  Model.prototype.isCreatedByThirdParty = function() {
-    return this.username && this.username.startsWith('facebook-token');
-  };
-
+  
   // HELPER METHODS
 
   Model.validatePasswordLength = function(password, next) {
@@ -96,15 +92,20 @@ module.exports = function(Model) {
 
   // OPERATION HOOKS
 
-  Model.observe('after save', function(context, next) {
+  Model.observe('before save', function(context, next) {
+    let now = Date.now();
+
     if (context.isNewInstance) {
-      if (context.instance.isCreatedByThirdParty()) next();
-      else context.instance.verifyAccount()
-        .then(() => next())
-        .catch((err) => next(err));
-    } else {
-      next();
+      context.instance.createdAt = now;
     }
+
+    if (context.instance) {
+      context.instance.updatedAt = now;
+    } else {
+      context.data.updatedAt = now;
+    }
+
+    next();
   });
 
   // REMOTE HOOKS
@@ -122,6 +123,12 @@ module.exports = function(Model) {
     });
 
     next();
+  });
+
+  Model.afterRemote('create', function(context, instance, next) {
+    instance.verifyAccount()
+      .then(() => next())
+      .catch((err) => next(err));
   });
 
   // ON
