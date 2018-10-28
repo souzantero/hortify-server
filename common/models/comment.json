@@ -9,6 +9,11 @@
   },
   "validations": [],
   "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserAccount",
+      "foreignKey": "userId"
+    },
     "topic": {
       "type": "belongsTo",
       "model": "Topic",

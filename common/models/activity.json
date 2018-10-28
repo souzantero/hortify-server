@@ -8,7 +8,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserAccount",
+      "foreignKey": "userId"
+    },
+    "community": {
+      "type": "belongsTo",
+      "model": "Community",
+      "foreignKey": "communityId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

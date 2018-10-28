@@ -26,9 +26,24 @@
       "model": "AuthorizationToken",
       "foreignKey": "userId"
     },
+    "communities": {
+      "type": "hasMany",
+      "model": "Community",
+      "foreignKey": "userId"
+    },
     "topics": {
       "type": "hasMany",
       "model": "Topic",
+      "foreignKey": "userId"
+    },
+    "comments": {
+      "type": "hasMany",
+      "model": "Comment",
+      "foreignKey": "userId"
+    },
+    "activities": {
+      "type": "hasMany",
+      "model": "Activity",
       "foreignKey": "userId"
     }
   },

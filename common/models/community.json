@@ -17,9 +17,19 @@
   },
   "validations": [],
   "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserAccount",
+      "foreignKey": "userId"
+    },
     "topics": {
       "type": "hasMany",
       "model": "Topic",
+      "foreignKey": "communityId"
+    },
+    "activities": {
+      "type": "hasMany",
+      "model": "Activity",
       "foreignKey": "communityId"
     }
   },
