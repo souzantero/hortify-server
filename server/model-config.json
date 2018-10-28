@@ -75,5 +75,9 @@
   "Activity": {
     "dataSource": "local",
     "public": true
+  },
+  "Member": {
+    "dataSource": "local",
+    "public": true
   }
 }

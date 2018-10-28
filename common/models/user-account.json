@@ -45,6 +45,11 @@
       "type": "hasMany",
       "model": "Activity",
       "foreignKey": "userId"
+    },
+    "members": {
+      "type": "hasMany",
+      "model": "Member",
+      "foreignKey": "userId"
     }
   },
   "acls": [],
