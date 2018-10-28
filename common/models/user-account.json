@@ -25,6 +25,11 @@
       "type": "hasMany",
       "model": "AuthorizationToken",
       "foreignKey": "userId"
+    },
+    "topics": {
+      "type": "hasMany",
+      "model": "Topic",
+      "foreignKey": "userId"
     }
   },
   "acls": [],
