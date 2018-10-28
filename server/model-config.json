@@ -55,5 +55,25 @@
   "ThirdPartyCredential": {
     "dataSource": "local",
     "public": false
+  },
+  "DataModel": {
+    "dataSource": "local",
+    "public": false
+  },
+  "Community": {
+    "dataSource": "local",
+    "public": true
+  },
+  "Topic": {
+    "dataSource": "local",
+    "public": true
+  },
+  "Comment": {
+    "dataSource": "local",
+    "public": true
+  },
+  "Activity": {
+    "dataSource": "local",
+    "public": true
   }
 }

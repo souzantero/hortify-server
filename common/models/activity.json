@@ -1,0 +1,14 @@
+{
+  "name": "Activity",
+  "base": "DataModel",
+  "properties": {
+    "type": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

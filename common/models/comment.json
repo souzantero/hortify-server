@@ -1,0 +1,14 @@
+{
+  "name": "Comment",
+  "base": "DataModel",
+  "properties": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

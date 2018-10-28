@@ -1,0 +1,34 @@
+{
+  "name": "Topic",
+  "base": "DataModel",
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "UserAccount",
+      "foreignKey": "userId"
+    },
+    "community": {
+      "type": "belongsTo",
+      "model": "Community",
+      "foreignKey": "communityId"
+    },
+    "comments": {
+      "type": "hasMany",
+      "model": "Comment",
+      "foreignKey": "topicId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

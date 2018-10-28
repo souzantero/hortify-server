@@ -1,0 +1,22 @@
+{
+  "name": "Community",
+  "base": "DataModel",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "latitude": {
+      "type": "number",
+      "required": true
+    },
+    "longitude": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
