@@ -5,6 +5,10 @@
     "type": {
       "type": "number",
       "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

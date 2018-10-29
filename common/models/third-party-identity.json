@@ -1,6 +1,7 @@
 {
   "name": "ThirdPartyIdentity",
   "base": "UserIdentity",
+  "strict": true,
   "properties": {},
   "validations": [],
   "relations": {

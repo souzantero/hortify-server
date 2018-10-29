@@ -1,11 +1,11 @@
 {
   "name": "DataModel",
   "base": "PersistedModel",
+  "strict": true,
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
-  "strict": true,
   "properties": {
     "createdAt": {
       "type": "date",

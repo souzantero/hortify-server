@@ -1,6 +1,7 @@
 {
   "name": "AuthorizationToken",
   "base": "AccessToken",
+  "strict": true,
   "properties": {},
   "validations": [],
   "relations": {
